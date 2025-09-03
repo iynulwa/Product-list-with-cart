@@ -1,0 +1,32 @@
+.card-section{
+
+    .product-image-container{
+        border-radius: 0.5rem;
+
+        picture, img{
+            position: relative;
+            border-radius: 0.5rem;
+        }
+    }
+    
+    .btn-container{
+        position: relative;
+    }
+
+    .product-stats{
+        margin-block-start: 2rem;
+
+        p:nth-child(1) {
+            color: var(--clr-Rose300);
+        }
+
+        p:nth-child(2) {
+            color: var(--clr-Rose900);
+            font-weight: 600;
+        }
+
+        p:nth-child(3) {
+            color: var(--clr-Red);
+        }
+    }
+}

@@ -1,0 +1,42 @@
+h1{
+    font-size: 3rem;
+    color: var(--clr-900);
+    margin: 1rem 0;
+}
+
+.product-grid{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 40rem) and (max-width: 59.99rem) {
+
+    .product-section {
+        max-width: 65%;
+    }
+
+    .product-grid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 1rem;
+        gap: var(--fs-16);
+    }
+}
+
+@media screen and (min-width: 60rem) {
+
+    .product-section {
+        max-width: 70%;
+    }
+    
+    .product-grid{
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        gap: var(--fs-16);
+    }   
+}

@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root{
+    --clr-Red: hsl(14, 86%, 42%);
+    --clr-Green: hsl(159, 69%, 38%);
+    --clr-Rose50: hsl(20, 50%, 98%);
+    --clr-Rose100: hsl(13, 31%, 94%);
+    --clr-Rose300: hsl(14, 25%, 72%);
+    --clr-Rose400: hsl(7, 20%, 60%);
+    --clr-Rose500: hsl(12, 20%, 44%);
+    --clr-Rose900: hsl(14, 65%, 9%);
+    --ff-display: 'Red Hat Text';
+    --fw-regular: 400;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fs-16: 1rem;
+    --lh-tight: 1.1;
+    --lh-normal: 1.5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+	font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+body {
+  background-color: var(--clr-Rose50);
+  min-height: 100vh;
+  line-height: var(--lh-normal);
+  font-family: var(--ff-display), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#root{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+// App.jsx styling
+.main-container{
+  padding: 0 1rem;
+}
+
+@media (min-width: 40rem) and (max-width: 59.99rem) {
+  .main-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .main-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 3.5rem;
+  }
+}
