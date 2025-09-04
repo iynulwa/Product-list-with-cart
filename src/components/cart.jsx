@@ -1,7 +1,9 @@
 import { UseCartContext } from "../context/cartContext";
 import CartItem from "./cartItem";
+import Modal from "./modal";
 import data from '../data/data.json'
 import formatCurrency from "../utilities/formatCurrency";
+import { useState } from "react";
 
 function Cart() {
 
@@ -36,6 +38,18 @@ function Cart() {
         )
     }
 
+    // display and remove modal
+    const [openModal, setOpenModal] = useState(false);
+
+    function CompleteOrder() {
+        setOpenModal(true);
+    }
+
+    function handleNewOrder() {
+        setOpenModal(false);
+        window.location.reload();
+    }
+
     return (
         <section className="cart-section">
             <h2>Your Cart({cartQuantity})</h2>
@@ -53,8 +67,15 @@ function Cart() {
                         <span>{ formatCurrency (totalPrice) }</span>
                     </p>
                     <div className="carbon-status"><img src="/images/icon-carbon-neutral.svg" alt=""/>This is a carbon-neutral delivery</div>
-                    <button className="confirm-btn">Confirm Order</button>
+                    <button className="confirm-btn" onClick={CompleteOrder}>Confirm Order</button>
                 </div>
+            }
+            {openModal && 
+                <Modal 
+                    cartItems={cartProducts}
+                    totalPrice={totalPrice}
+                    handleNewOrder={handleNewOrder}
+                />
             }
         </section>
     )
