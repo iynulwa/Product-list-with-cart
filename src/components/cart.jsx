@@ -16,9 +16,9 @@ function Cart() {
     });
 
     // get total price
-    const totalPrice = cartItems.reduce((total, cartItems) => {
-        const product = data.find(p => p.id === cartItems.id);
-        return total + (product.price * cartItems.quantity);
+    const totalPrice = cartItems.reduce((total, cartItem) => {
+        const product = data.find(p => p.id === cartItem.id);
+        return total + (product.price * cartItem.quantity);
     }, 0);
     
     // create cart items
@@ -67,7 +67,7 @@ function Cart() {
                         <span>{ formatCurrency (totalPrice) }</span>
                     </p>
                     <div className="carbon-status"><img src="/images/icon-carbon-neutral.svg" alt=""/>This is a carbon-neutral delivery</div>
-                    <button className="confirm-btn" onClick={CompleteOrder}>Confirm Order</button>
+                    <button type="button" className="confirm-btn" onClick={CompleteOrder}>Confirm Order</button>
                 </div>
             }
             {openModal && 

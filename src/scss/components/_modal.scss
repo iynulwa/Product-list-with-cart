@@ -38,11 +38,6 @@
             margin-block-end: 1rem;
             border-bottom: 1px solid var(--clr-Rose100);
             padding: 1rem 0;
-
-            p:nth-child(2){
-                color: var(--clr-Rose900);
-                font-weight: 600;
-            }
         }
 
         .modal-img-stats{
@@ -67,15 +62,6 @@
                 align-items: center;
                 gap: 1rem;
                 font-size: 0.85rem;
-
-                span:nth-child(1){
-                    color: var(--clr-Red);
-                }
-
-                span:nth-child(2){
-                    color: var(--clr-Rose400);
-                    font-weight: 400;
-                }
             }
         }
     }
@@ -85,11 +71,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        span:nth-child(2){
-            font-size: 2rem;
-            font-weight: 600;
-        }
     }
 
     .new-order-btn{
@@ -99,6 +80,25 @@
         padding: 1rem;
         border-radius: 2rem;
     }
+}
+
+.modal-quantity{
+    color: var(--clr-Red);
+}
+
+.modal-price{
+    color: var(--clr-Rose400);
+    font-weight: 400;
+}
+
+.price-quantity-total{
+    color: var(--clr-Rose900);
+    font-weight: 600;
+}
+
+.modal-total-price{
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 

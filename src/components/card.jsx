@@ -9,7 +9,7 @@ function Card({ id, name, price, category, mobile_img, tablet_img, desktop_img }
 
     return(
         <section className='card-section'>
-            <div className='product-image-container' style={{border: quantity > 0 ? "2px solid var(--clr-Red)" : "none"}}>
+            <div className={`product-image-container ${quantity > 0 ? 'border-active' : ''}`}>
                 <picture className='product-image'>
                     <source media='(min-width: 60rem)' srcSet={desktop_img} />
                     <source media='(min-width: 35rem) and (max-width: 59.99rem)' srcSet={tablet_img} />

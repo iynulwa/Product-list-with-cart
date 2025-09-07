@@ -16,12 +16,12 @@ function Modal ({ cartItems, handleNewOrder, totalPrice }) {
                         <div>
                             <h3>{item.name}</h3>
                             <p className="modal-stats">
-                                <span>{quantity}X</span>
-                                <span>{ formatCurrency (item.price) }</span>  
+                                <span className="modal-quantity">{quantity}X</span>
+                                <span className="modal price">{ formatCurrency (item.price) }</span>  
                             </p>
                         </div>
                     </div>
-                    <p>{ formatCurrency (item.price * quantity) }</p>
+                    <p className="price-quantity-total">{ formatCurrency (item.price * quantity) }</p>
                 </div>
             </div>
         )
@@ -30,23 +30,23 @@ function Modal ({ cartItems, handleNewOrder, totalPrice }) {
     return(
         <>
         <div className="overlay"></div>
-        <dialog className="modal-section">
-            <div className="modal-content">
-                <img src="/images/icon-order-confirmed.svg" alt="" />
-                <div>
-                    <h2>Order confirmed</h2>
-                    <p>We hope you enjoy your food!</p>
+            <dialog className="modal-section">
+                <div className="modal-content">
+                    <img src="/images/icon-order-confirmed.svg" alt="" />
+                    <div>
+                        <h2>Order confirmed</h2>
+                        <p>We hope you enjoy your food!</p>
+                    </div>
+                    <div className="modal-order">
+                        {cartItems.map(createModalItems)}
+                    </div>
+                    <p className="modal-total">
+                        <span>Order Total</span>
+                        <span className="modal-total-price">{ formatCurrency (totalPrice) }</span>
+                    </p>
+                    <button type="button" className="new-order-btn" onClick={handleNewOrder}>Start New Order</button>
                 </div>
-                <div className="modal-order">
-                    {cartItems.map(createModalItems)}
-                </div>
-                <p className="modal-total">
-                    <span>Order Total</span>
-                    <span>{ formatCurrency (totalPrice) }</span>
-                </p>
-                <button className="new-order-btn" onClick={handleNewOrder}>Start New Order</button>
-            </div>
-        </dialog>
+            </dialog>
         </>
     )
 }

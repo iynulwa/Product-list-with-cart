@@ -1,6 +1,6 @@
 import formatCurrency from "../utilities/formatCurrency";
 
-function CartItem ({  id, quantity, name, price, removeItem }) {
+function CartItem ({ quantity, name, price, removeItem }) {
     return(
         <div className="orders">
             <div className="order-info">
@@ -11,7 +11,7 @@ function CartItem ({  id, quantity, name, price, removeItem }) {
                     <p>{ formatCurrency (price * quantity) }</p>
                 </div>
             </div>
-            <button className="remove-btn" onClick={removeItem}><img src="/images/icon-remove-item.svg" alt="remove order" /></button>
+            <button type="button" className="remove-btn" onClick={removeItem}><img src="/images/icon-remove-item.svg" alt="remove order" /></button>
         </div>
     )
 }
