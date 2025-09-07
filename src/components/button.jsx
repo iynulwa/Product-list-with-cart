@@ -1,4 +1,4 @@
-function Button({id, increaseQty, decreaseQty, quantity}) {
+function Button({increaseQty, decreaseQty, quantity}) {
 
     return (
         <div className="btn">
