@@ -1,7 +1,7 @@
 import formatCurrency from "../utilities/formatCurrency";
 import { UseCartContext } from "../context/cartContext";
 
-function Modal ({ cartItems, handleNewOrder, totalPrice }) {
+function Modal ({ cartItems, handleNewOrder, totalPrice, modalRef }) {
 
     const { getItems } = UseCartContext();
 
@@ -30,7 +30,7 @@ function Modal ({ cartItems, handleNewOrder, totalPrice }) {
     return(
         <>
         <div className="overlay"></div>
-            <dialog className="modal-section">
+            <dialog ref={modalRef} className="modal-section">
                 <div className="modal-content">
                     <img src="/images/icon-order-confirmed.svg" alt="" />
                     <div>

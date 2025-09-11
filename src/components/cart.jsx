@@ -3,7 +3,7 @@ import CartItem from "./cartItem";
 import Modal from "./modal";
 import data from '../data/data.json'
 import formatCurrency from "../utilities/formatCurrency";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Cart() {
 
@@ -50,6 +50,15 @@ function Cart() {
         window.location.reload();
     }
 
+    // Scroll to modal
+    const modalRef = useRef(null);
+
+    useEffect(() => {
+        if(openModal && modalRef.current) {
+            modalRef.current.scrollIntoView({behavior: 'smooth'});
+        }
+    }, [openModal])
+
     return (
         <section className="cart-section">
             <h2>Your Cart({cartQuantity})</h2>
@@ -72,6 +81,7 @@ function Cart() {
             }
             {openModal && 
                 <Modal 
+                    modalRef={modalRef}
                     cartItems={cartProducts}
                     totalPrice={totalPrice}
                     handleNewOrder={handleNewOrder}
