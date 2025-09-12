@@ -12,9 +12,7 @@ This is a solution to the [Product list with cart challenge on Frontend Mentor](
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 
 ## Overview
@@ -37,10 +35,16 @@ Users should be able to:
 
 ## My process
 
+- Write down the tasks and challenges that might be encountered while working on the project on a piece of paper. Example is making the data in the json file available to every part of the application.
+- List out the tech (React, SCSS, Vite) I'll need to make this application function.
+- Create the app and applying all the styling that might be necessary. (Here CSS reset is applied, Components are created, Unnecessary folders and files are removed, Dependencies are added, Placeholders are created for parts of the application that will be created dynamically)
+- Functionality is added (At this stage, several react hooks and APIs are explored and applied/tested to see which fits the project the most)
+- Further CSS styling
+- Deployment
+
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
 - SCSS
 - Flexbox
 - CSS Grid
@@ -49,39 +53,53 @@ Users should be able to:
 
 ### What I learned
 
-First and foremost as a result of this project I saw introduced to React's context API (createContext and useContext methods). It is a way of making varibles available to all components without the use of prop drilling. 
+- CSS logical properties
+- React Context API: Involves the use of two react hooks; createContext and useContext. These hooks are used to make function, data available to every part of the react application without the use of prop drilling.
+- useRef: Used to query and manipulate the DOM when using React. The scrollIntoView method can be applied to a component by using this react hook.
 
-To see how you can add code snippets, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+button{
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-end: 0;
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+```js 
+// use context API
+const cartContext = createContext({});
+
+export const UseCartContext = () => {
+  return useContext(cartContext);
 }
+
+function getItems(id) {
+  return cartItems.find(item => item.id === id)?.quantity || 0 
+}
+
+return(
+  <cartContext.Provider value={{ getItems }}>
+      {children}
+  </cartContext.Provider>
+)
+```
+
+```js
+// useRef
+const modalRef = useRef(null);
+
+useEffect(() => {
+    if(openModal && modalRef.current) {
+        modalRef.current.scrollIntoView({behavior: 'smooth'});
+    }
+}, [openModal])
 ```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
+I would like to work on a similar project or a project that extensively uses react context API. 
 
 ## Author
 
 - Frontend Mentor - [@iynulwa](https://www.frontendmentor.io/profile/iynulwa)
-- Twitter - [@iynulwa](https://www.twitter.com/inyulwa)
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+- Twitter - [@iynulwa](https://www.twitter.com/iynulwa)
